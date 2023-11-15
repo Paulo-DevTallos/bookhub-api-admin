@@ -7,11 +7,9 @@ export class App {
     this.app = expressInstance;
   }
 
-  initServer() {
-    this.app.listen(3006, () => {
-      console.log('Server is running on port http://localhost:3006');
+  initServer(port: number) {
+    this.app.listen(port, () => {
+      console.log(`Server is running on port http://localhost:${port}`);
     });
   }
 }
-
-new App().initServer();
