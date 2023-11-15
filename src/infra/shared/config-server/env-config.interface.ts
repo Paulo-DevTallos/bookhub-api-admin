@@ -1,5 +1,5 @@
 export interface EnvConfig {
-  getEnvPort(): number;
+  getAppPort(): number;
   getNodeEnv(): string;
-  getEnvDatabaseURL(url: string): string;
+  getDatabaseURL(url: string): string;
 }
