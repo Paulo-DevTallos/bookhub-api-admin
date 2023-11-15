@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "husky:prepare": "husky install",
-    "format": "npx prettier --check --log-level debug 'src/**'",
+    "format:debug": "npx prettier --check --log-level debug 'src/**'",
+    "format:writer": "npx prettier --check --write 'src/**'",
     "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/main.ts' -e ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
