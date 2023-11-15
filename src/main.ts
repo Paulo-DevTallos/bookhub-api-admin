@@ -1,7 +1,10 @@
 import { App } from './app';
+import { environmentInstance } from './infra/shared/config-server/env-instance';
+
 const server = new App();
 
-const port = 3006;
+const envConfigService = environmentInstance();
+const port = envConfigService.global.getAppPort();
 server.initServer(port);
 
 server.app.on('error', onError);
