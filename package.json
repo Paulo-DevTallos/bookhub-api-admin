@@ -8,7 +8,7 @@
     "format:debug": "npx prettier --check --log-level debug 'src/**'",
     "format:writer": "npx prettier --check --write 'src/**'",
     "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/main.ts' -e ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,8 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.1",
     "@commitlint/config-conventional": "^18.4.0",
+    "@swc/core": "^1.3.96",
+    "@swc/jest": "^0.2.29",
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.8",
     "@types/node": "^20.9.0",
