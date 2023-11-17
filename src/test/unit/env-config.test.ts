@@ -16,4 +16,10 @@ describe('EnvConfigService', () => {
     const port = sut.getAppPort();
     expect(port).toStrictEqual(3006);
   });
+
+  it('ensure typeof APP_PORT is number', () => {
+    const sut = makeSut();
+    const port = sut.getAppPort();
+    expect(typeof port).toBe('number');
+  });
 });
