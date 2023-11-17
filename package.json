@@ -8,7 +8,9 @@
     "format:debug": "npx prettier --check --log-level debug 'src/**'",
     "format:writer": "npx prettier --check --write 'src/**'",
     "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/main.ts' -e ts",
-    "test": "jest"
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch",
+    "test:staged": "npm run test --findRelatedTests"
   },
   "keywords": [],
   "author": "",
