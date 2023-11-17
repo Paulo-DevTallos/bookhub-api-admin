@@ -1,6 +1,13 @@
+import { EnvConfigService } from '../../infra/shared/config-server/env-config.service';
+
+const makeSut = () => {
+  const sut = EnvConfigService.getInstance('test');
+  return sut;
+};
+
 describe('EnvConfigService', () => {
-  it('should be defined', () => {
-    console.log(true);
-    expect(true).toBeTruthy();
+  it('ensure sut should be defined', () => {
+    const sut = makeSut();
+    expect(sut).toBeDefined();
   });
 });
