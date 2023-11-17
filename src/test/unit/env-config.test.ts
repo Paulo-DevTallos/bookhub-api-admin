@@ -11,6 +11,11 @@ describe('EnvConfigService', () => {
     expect(sut).toBeDefined();
   });
 
+  it('should create an instance with defaul env value', () => {
+    const sut = makeSut();
+    expect(sut).toBeInstanceOf(EnvConfigService);
+  });
+
   it('should return the correct APP_PORT when its defined', () => {
     const sut = makeSut();
     const port = sut.getAppPort();
@@ -29,7 +34,7 @@ describe('EnvConfigService', () => {
     expect(typeof nodeENv).toBe('string');
   });
 
-  it('ensure environment return a value w0hen NODE_ENV is defined', () => {
+  it('ensure environment return a value when NODE_ENV is defined', () => {
     const enviromnent = (process.env.NODE_ENV = 'development');
     const sut = makeSut(enviromnent);
     const nodeEnv = sut.getNodeEnv();
