@@ -1,7 +1,7 @@
 import { EnvConfigService } from '../../infra/shared/config-server/env-config.service';
 
-const makeSut = () => {
-  const sut = EnvConfigService.getInstance('test');
+const makeSut = (env?: string) => {
+  const sut = EnvConfigService.getInstance(env ?? 'test');
   return sut;
 };
 
@@ -21,5 +21,15 @@ describe('EnvConfigService', () => {
     const sut = makeSut();
     const port = sut.getAppPort();
     expect(typeof port).toBe('number');
+  });
+
+  it('ensure environment return a value w0hen NODE_ENV is defined', () => {
+    const enviromnent = (process.env.NODE_ENV = 'development');
+    const sut = makeSut(enviromnent);
+    const nodeEnv = sut.getNodeEnv();
+    expect(nodeEnv).toBeDefined();
+    expect(enviromnent).toStrictEqual('development');
+
+    process.env.NODE_ENV = 'test';
   });
 });
