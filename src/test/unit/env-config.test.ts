@@ -10,4 +10,10 @@ describe('EnvConfigService', () => {
     const sut = makeSut();
     expect(sut).toBeDefined();
   });
+
+  it('should return the correct APP_PORT when its defined', () => {
+    const sut = makeSut();
+    const port = sut.getAppPort();
+    expect(port).toStrictEqual(3006);
+  });
 });
