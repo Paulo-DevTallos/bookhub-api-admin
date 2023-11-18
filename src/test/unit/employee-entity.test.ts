@@ -69,4 +69,11 @@ describe('EmployeeEntity unit test constructor', () => {
     const created_at = (sut.props.created_at = new Date());
     expect(sut.props.created_at).toMatchObject(created_at);
   });
+
+  it('should test created_at is not null or undefined', () => {
+    const sut = makeSut();
+    const created_at = sut.props.created_at;
+    expect(created_at).not.toBeNull();
+    expect(created_at).not.toBeUndefined();
+  });
 });
