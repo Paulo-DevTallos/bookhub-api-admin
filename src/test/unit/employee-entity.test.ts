@@ -37,4 +37,17 @@ describe('EmployeeEntity unit test constructor', () => {
     };
     expect(sut.props).toMatchObject(employee);
   });
+
+  it('should create a new employee filling all fields', () => {
+    const sut = makeSut();
+    const employee = {
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+      register: 125,
+      password: '123456',
+      role: 'admin',
+      status: 'active',
+    };
+    expect(sut.props).toMatchObject(employee);
+  });
 });
