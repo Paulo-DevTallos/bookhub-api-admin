@@ -94,4 +94,12 @@ describe('validateFields method unit test', () => {
       new Error('Missing Param email'),
     );
   });
+
+  it('should throw an exception if password field is not provided', () => {
+    const sut = makeSut();
+    sut.props.password = '';
+    expect(() => sut['validateFields'](sut.props)).toThrow(
+      new Error('Missing Param password'),
+    );
+  });
 });
