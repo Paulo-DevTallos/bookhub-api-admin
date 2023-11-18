@@ -57,4 +57,10 @@ describe('EmployeeEntity unit test constructor', () => {
     expect(typeof register).toBe('number');
     expect(register).not.toBe(0);
   });
+
+  it('should test if created_at field is a valid Date', () => {
+    const sut = makeSut();
+    const created_at = sut.props.created_at;
+    expect(created_at).toBeInstanceOf(Date);
+  });
 });
