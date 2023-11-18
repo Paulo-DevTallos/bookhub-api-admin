@@ -77,3 +77,13 @@ describe('EmployeeEntity unit test constructor', () => {
     expect(created_at).not.toBeUndefined();
   });
 });
+
+describe('validateFields method unit test', () => {
+  it('should throw an exception if name field is not provided', () => {
+    const sut = makeSut();
+    sut.props.name = '';
+    expect(() => sut['validateFields'](sut.props)).toThrow(
+      new Error('Missing Param name'),
+    );
+  });
+});
