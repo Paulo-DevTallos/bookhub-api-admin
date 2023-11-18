@@ -50,4 +50,11 @@ describe('EmployeeEntity unit test constructor', () => {
     };
     expect(sut.props).toMatchObject(employee);
   });
+
+  it('should garantee register field is a valid number and should not return 0', () => {
+    const sut = makeSut();
+    const register = (sut.props.register = 1025);
+    expect(typeof register).toBe('number');
+    expect(register).not.toBe(0);
+  });
 });
