@@ -11,6 +11,16 @@ export interface EmployeeProps {
 export class EmployeeEntity {
   constructor(public readonly props: EmployeeProps) {
     this.props.created_at = this.props.created_at ?? new Date();
+    this.validateFields(this.props);
+  }
+
+  private validateFields(props: EmployeeProps) {
+    const requiredFields = Object.keys(props);
+    for (const field of requiredFields) {
+      if (!props[field as keyof EmployeeProps]) {
+        throw new Error(`Missing Param ${field}`);
+      }
+    }
   }
 }
 
