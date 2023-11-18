@@ -23,4 +23,18 @@ describe('EmployeeEntity unit test constructor', () => {
     expect(sut).toBeDefined();
     expect(sut).toBeTruthy();
   });
+
+  it('should create a new employee filling all equivalents typeof', () => {
+    const sut = makeSut();
+    const employee = {
+      name: expect.any(String),
+      email: expect.any(String),
+      register: expect.any(Number),
+      password: expect.any(String),
+      role: expect.any(String),
+      status: expect.any(String),
+      created_at: expect.any(Date),
+    };
+    expect(sut.props).toMatchObject(employee);
+  });
 });

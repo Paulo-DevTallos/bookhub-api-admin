@@ -10,4 +10,18 @@ to watch debug logs when prettier check is executed
 ```sh
 => npx prettier --check --log-level debug 'src/**'
 => npx prettier --check --write 'src/**' ## use this flag to overwrite the rules
+
+## ações para melhoria do script:
+=> git diff --staged --name-only take the path of files added to stage area
+```
+
+is possible to add environments to take the path passed to prettier check
+```sh
+=> npx prettier --check --log-level debug $PATH
+=> npx prettier --check --write $PATH
+
+## Ex:
+"format:debuger": "npx prettier --check --log-level debug $PATH"
+
+PATH='/src/my-path...' npm run format:debuger
 ```
