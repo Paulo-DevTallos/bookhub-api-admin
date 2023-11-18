@@ -86,4 +86,12 @@ describe('validateFields method unit test', () => {
       new Error('Missing Param name'),
     );
   });
+
+  it('should throw an exception if email field is not provided', () => {
+    const sut = makeSut();
+    sut.props.email = '';
+    expect(() => sut['validateFields'](sut.props)).toThrow(
+      new Error('Missing Param email'),
+    );
+  });
 });
