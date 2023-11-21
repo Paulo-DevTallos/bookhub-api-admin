@@ -103,7 +103,7 @@ describe('validateFields method unit test', () => {
     );
   });
 
-  it('should throw an exception if password field is not provided', () => {
+  it('should throw an exception if register field is not provided', () => {
     const sut = makeSut();
     sut.props.register = 0;
     expect(() => sut['validateFields'](sut.props)).toThrow(
