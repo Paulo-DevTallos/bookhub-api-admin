@@ -10,6 +10,7 @@ export interface EmployeeProps {
 
 export class EmployeeEntity {
   constructor(public readonly props: EmployeeProps) {
+    this.props.status = this.props.status || EmployeeEnum.Status.ACTIVE;
     this.props.created_at = this.props.created_at ?? new Date();
     this.validateFields(this.props);
   }
@@ -21,6 +22,30 @@ export class EmployeeEntity {
         throw new Error(`Missing Param ${field}`);
       }
     }
+  }
+
+  get name(): string {
+    return this.props.name;
+  }
+
+  get email(): string {
+    return this.props.email;
+  }
+
+  get password(): string {
+    return this.props.password;
+  }
+
+  get register(): number {
+    return this.props.register;
+  }
+
+  get status(): string {
+    return this.props.status;
+  }
+
+  get createdAt(): Date {
+    return this.props.created_at!;
   }
 }
 
