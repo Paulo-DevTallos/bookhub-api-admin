@@ -4,8 +4,17 @@ export interface EmployeeProps {
   register: number;
   password: string;
   role: string;
-  status: EmployeeEnum.Status;
+  status?: EmployeeEnum.Status;
   created_at?: Date;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-namespace
+export namespace EmployeeEnum {
+  export enum Status {
+    ACTIVE = 'active',
+    INACTIVE = 'inactive',
+    ON_VACATION = 'on_vacation',
+  }
 }
 
 export class EmployeeEntity {
@@ -40,21 +49,16 @@ export class EmployeeEntity {
     return this.props.register;
   }
 
-  get status(): string {
-    return this.props.status;
+  get status(): EmployeeEnum.Status {
+    return this.status;
+  }
+
+  private set status(value: EmployeeEnum.Status) {
+    this.props.status = value;
   }
 
   get createdAt(): Date {
     return this.props.created_at!;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-namespace
-export namespace EmployeeEnum {
-  export enum Status {
-    ACTIVE = 'active',
-    INACTIVE = 'inactive',
-    ON_VACATION = 'on_vacation',
   }
 }
 
@@ -64,7 +68,6 @@ const employee = new EmployeeEntity({
   register: 325,
   password: '123456',
   role: 'admin',
-  status: EmployeeEnum.Status.ACTIVE,
 });
 
 console.log(employee);
